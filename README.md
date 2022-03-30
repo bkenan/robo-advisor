@@ -12,3 +12,10 @@ Our target values are the “true” risk tolerance of an individual and the fea
 
 
 The data source: [Survey of Consumer Finances (SCF)]( https://www.federalreserve.gov/econres/scf_2009p.htm). The survey includes responses about household demographics, net worth, financial, and nonfinancial assets for the same set of individuals in 2007 (pre-crisis) and 2009 (post-crisis). 
+
+
+### The steps for installation:
+
+1. Clone this repo to your local machine
+2. $ pip install dash
+3. $ python main.py
