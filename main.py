@@ -38,9 +38,7 @@ app.layout = html.Div([
     html.Div([ 
         #Dashboard Name
         html.Div([
-            html.Div([
-                html.H3(children='Robo-Advisor'),
-            ], style={'background-color': 'blue'}),
+            html.H3(children='Robo-Advisor'),
             html.Div([
                 html.H5(children='Step 1 : Investor Characteristics '),
                 html.Div([
@@ -153,7 +151,7 @@ app.layout = html.Div([
                     ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block',
                               'font-family': 'calibri', 'horizontal-align': 'right'}),
                     html.Div([
-                        dcc.Graph(id='Performance')
+                        dcc.Graph(id='Performance', style={'color': 'blue'})
                     ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block',
                               'font-family': 'calibri', 'horizontal-align': 'right'}),
                  ], style={'width': '100%', 'vertical-align': 'top', 'display': 'inline-block',
