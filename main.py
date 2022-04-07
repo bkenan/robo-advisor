@@ -41,6 +41,7 @@ app.layout = html.Div([
             html.H3(children='Robo-Advisor'),
             html.Div([
                 html.H5(children='Step 1 : Investor Characteristics '),
+                html.Div([
                 html.Label('Age', style={'padding': 5}),
                 dcc.Slider(
                     id='Age',
@@ -108,7 +109,8 @@ app.layout = html.Div([
                 #             style={'fontSize': 14, 'marginLeft': '30px', 'color': 'white', \
                 #                    'horizontal-align': 'left', 'backgroundColor': 'grey'}),
                 # html.Br(),
-                ],style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
+                ], style={'width': '90%'}),
+                ], style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
                    'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
                 html.H5(children='Step 2 : Portfolio management'),
