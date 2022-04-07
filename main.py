@@ -152,10 +152,10 @@ app.layout = html.Div([
                         dcc.Graph(id='Performance')
                     ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block',
                               'font-family': 'calibri', 'horizontal-align': 'right'}),
-                 ], style={'width': '70%', 'vertical-align': 'top', 'display': 'inline-block',
+                 ], style={'width': '100%', 'vertical-align': 'top', 'display': 'inline-block',
                           'font-family': 'calibri', 'horizontal-align': 'right'}),
 
-                ], style={'width': '70%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top',
+                ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top',
                       'horizontal-align': 'right'}),
             ], style={'display': 'inline-block', 'vertical-align': 'top',
                          'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue',
