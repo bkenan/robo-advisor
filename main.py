@@ -195,9 +195,9 @@ app.layout = html.Div([
                      }),""",
 
     # ********************Risk Tolerance Charts********            
-       html.Div([    
-               #html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),  
         html.Div([
+               #html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),  
+         html.Div([
             html.Div([ 
                 html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
                 dcc.Input(id= 'risk-tolerance-text'),
@@ -222,7 +222,7 @@ app.layout = html.Div([
                ],style={'width': '100%','font-family': 'calibri','vertical-align': 'top','display': 'inline-block'}),
             ],style={'width': '100%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top'}),
            
-           html.Div([                
+            html.Div([
                 html.Div([
                     dcc.Graph(id='Asset-Allocation'), 
                     ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
