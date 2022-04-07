@@ -38,7 +38,7 @@ app.layout = html.Div([
     html.Div([ 
         #Dashboard Name
         html.Div([
-            html.div([
+            html.Div([
                 html.H3(children='Robo-Advisor'),
             ], style={'background-color': 'blue'}),
             html.Div([
