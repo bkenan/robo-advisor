@@ -111,18 +111,16 @@ app.layout = html.Div([
                 ],style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
                          'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
-                html.H5(children='Step 2 : Portfolio management'),            
-                ],style={'display': 'inline-block', 'vertical-align': 'top',  \
-                         'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue',\
-                         'border-radius': '25px'}),
-            html.Div([
-                # html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),
+                html.H5(children='Step 2 : Portfolio management'),
+
                 html.Div([
+                # html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),
+                 html.Div([
                     html.Div([
                         html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
                         dcc.Input(id='risk-tolerance-text'),
 
-                    ], style={'width': '70%', 'font-family': 'calibri', 'vertical-align': 'top',
+                    ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
                               'display': 'inline-block'}),
 
                     html.Div([
@@ -141,25 +139,28 @@ app.layout = html.Div([
                                            'backgroundColor': 'grey'}
 
                                     ),
-                    ], style={'width': '70%', 'font-family': 'calibri', 'vertical-align': 'top',
+                    ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
                               'display': 'inline-block'}),
-                ], style={'width': '70%', 'display': 'inline-block', 'font-family': 'calibri',
-                          'vertical-align': 'top'}),
+                 ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
 
-                html.Div([
+                 html.Div([
                     html.Div([
                         dcc.Graph(id='Asset-Allocation'),
-                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
+                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block',
                               'font-family': 'calibri', 'horizontal-align': 'right'}),
                     html.Div([
                         dcc.Graph(id='Performance')
-                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
+                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block',
                               'font-family': 'calibri', 'horizontal-align': 'right'}),
-                ], style={'width': '70%', 'vertical-align': 'top', 'display': 'inline-block', \
+                 ], style={'width': '70%', 'vertical-align': 'top', 'display': 'inline-block',
                           'font-family': 'calibri', 'horizontal-align': 'right'}),
 
-            ], style={'width': '70%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top',
+                ], style={'width': '70%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top',
                       'horizontal-align': 'right'}),
+            ], style={'display': 'inline-block', 'vertical-align': 'top'
+                         'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue',
+                         'border-radius': '25px'}),
+
         ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
             ],style={'font-family': 'calibri', 'text-align': 'center'}),
          
