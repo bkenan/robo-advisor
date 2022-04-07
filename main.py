@@ -367,7 +367,7 @@ def update_asset_allocationChart(n_clicks, risk_tolerance, stock_ticker):
     return [{'data' : [go.Bar(
                         x=Allocated.index,
                         y=Allocated.iloc[:,0],
-                        marker=dict(color='red'),
+                        marker=dict(color='blue'),
                     ),
                     ],
             'layout': {'title':" Asset allocation - Mean-Variance Allocation"}
@@ -377,7 +377,7 @@ def update_asset_allocationChart(n_clicks, risk_tolerance, stock_ticker):
                         x=InvestmentReturn.index,
                         y=InvestmentReturn.iloc[:,0],
                         name = 'OEE (%)',
-                        marker=dict(color='red'),
+                        marker=dict(color='blue'),
                     ),
                     ],
             'layout': {'title':"Portfolio value of $100 investment"}
