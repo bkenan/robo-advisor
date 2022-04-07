@@ -40,7 +40,74 @@ app.layout = html.Div([
         html.Div([
             html.H3(children='Robo-Advisor'),
             html.Div([
-                html.H5(children='Step 1 : Investor Characteristics '),            
+                html.H5(children='Step 1 : Investor Characteristics '),
+                html.Label('Age:', style={'padding': 5}),
+                dcc.Slider(
+                    id='Age',
+                    min=investors['AGE07'].min(),
+                    max=70,
+                    marks={25: '25', 35: '35', 45: '45', 55: '55', 70: '70'},
+                    value=25),
+                html.Br(),
+
+                html.Label('NetWorth:', style={'padding': 5}),
+                dcc.Slider(
+                    id='Nwcat',
+                    min=-1000000, max=3000000,
+                    marks={-1000000: '-$1M', 0: '0', 500000: '$0.5m', 1000000: '$1M', 2000000: '$2M', },
+                    value=10000),
+                html.Br(),
+                html.Label('Income:', style={'padding': 5}),
+                dcc.Slider(
+                    id='Inccl',
+                    min=-1000000,
+                    max=3000000,
+                    marks={-1000000: '-$1M', 0: '0', 500000: '$500K', 1000000: '$1M', 2000000: '$2M', },
+                    value=100000),
+
+                html.Br(),
+                html.Label('Education Level (scale of 4):', style={'padding': 5}),
+                dcc.Slider(
+                    id='Edu',
+                    min=investors['EDCL07'].min(), max=investors['EDCL07'].max(),
+                    marks={1: '1', 2: '2', 3: '3', 4: '4'},
+                    value=2),
+                html.Br(),
+                html.Label('Married:', style={'padding': 5}),
+                dcc.Slider(
+                    id='Married',
+                    min=investors['MARRIED07'].min(), max=investors['MARRIED07'].max(),
+                    marks={1: '1', 2: '2'},
+                    value=1),
+                html.Br(),
+                html.Label('Kids:', style={'padding': 5}),
+                dcc.Slider(
+                    id='Kids',
+                    min=investors['KIDS07'].min(), max=investors['KIDS07'].max(),
+                    # marks={ 1: '1',2: '2',3: '3',4: '4'},
+                    marks=[{'label': j, 'value': j} for j in investors['KIDS07'].unique()],
+                    value=3),
+                html.Br(),
+                html.Label('Occupation:', style={'padding': 5}),
+                dcc.Slider(
+                    id='Occ',
+                    min=investors['OCCAT107'].min(), max=investors['OCCAT107'].max(),
+                    marks={1: '1', 2: '2', 3: '3', 4: '4'},
+                    value=3),
+                html.Br(),
+                html.Label('Willingness to take Risk:', style={'padding': 5}),
+                dcc.Slider(
+                    id='Risk',
+                    min=investors['RISK07'].min(), max=investors['RISK07'].max(),
+                    marks={1: '1', 2: '2', 3: '3', 4: '4'},
+                    value=3),
+                html.Br(),
+                html.Button(id='investor_char_button',
+                            n_clicks=0,
+                            children='Calculate Risk Tolerance',
+                            style={'fontSize': 14, 'marginLeft': '30px', 'color': 'white', \
+                                   'horizontal-align': 'left', 'backgroundColor': 'grey'}),
+                html.Br(),
                 ],style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
                          'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
@@ -52,7 +119,7 @@ app.layout = html.Div([
          
          #All the Investor Characteristics
                       
-         html.Div([   
+         """html.Div([   
           html.Div([ 
             
             html.Label('Age:',style={'padding': 5}),
@@ -125,7 +192,7 @@ app.layout = html.Div([
               ],style={'width': '100%', 'background-color': 'LightGray', 'border-radius': '25px'}),
             
             ],style={'width': '30%', 'font-family': 'calibri','vertical-align': 'top','display': 'inline-block'\
-                     }),
+                     }),""",
 
     # ********************Risk Tolerance Charts********            
        html.Div([    
