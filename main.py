@@ -113,7 +113,11 @@ app.layout = html.Div([
                 ], style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
                    'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
-                html.H5(children='Step 2 : Portfolio management'),
+                html.Div([
+                    html.H5(children='Step 2 : Portfolio management'),
+                ], style={'display': 'inline-block', 'vertical-align': 'top',
+                         'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color': 'blue',
+                         'border-radius': '25px'}),
 
                 html.Div([
                 # html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),
@@ -160,7 +164,7 @@ app.layout = html.Div([
                 ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top',
                       'horizontal-align': 'right'}),
             ], style={'display': 'inline-block', 'vertical-align': 'top',
-                         'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue',
+                         'color':'white','horizontalAlign' : "left", 'width': '70%',
                          'border-radius': '25px'}),
 
         ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
