@@ -61,7 +61,6 @@ app.layout = html.Div([
                 min = investors['AGE07'].min(),
                 max = 70,
                 marks={ 25: '25',35: '35',45: '45',55: '55',70: '70'},
-                style={},
                 value=25),   
             html.Br(),
             
