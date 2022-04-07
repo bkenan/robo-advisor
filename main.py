@@ -192,7 +192,7 @@ app.layout = html.Div([
               ],style={'width': '100%', 'background-color': 'LightGray', 'border-radius': '25px'}),
             
             ],style={'width': '30%', 'font-family': 'calibri','vertical-align': 'top','display': 'inline-block'\
-                     }),""",
+                     }),"""
 
     # ********************Risk Tolerance Charts********            
        html.Div([    
