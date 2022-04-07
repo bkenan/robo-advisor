@@ -41,7 +41,7 @@ app.layout = html.Div([
             html.H3(children='Robo-Advisor'),
             html.Div([
                 html.H5(children='Step 1 : Investor Characteristics '),            
-                ],style={'display': 'inline-block','vertical-align': 'top',  'width': '30%',\
+                ],style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
                          'color':'black', 'background-color': 'LightGray'}), 
             html.Div([
                 html.H5(children='Step 2 : Portfolio management'),            
