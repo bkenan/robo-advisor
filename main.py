@@ -122,7 +122,7 @@ app.layout = html.Div([
                         html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
                         dcc.Input(id='risk-tolerance-text'),
 
-                    ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
+                    ], style={'width': '70%', 'font-family': 'calibri', 'vertical-align': 'top',
                               'display': 'inline-block'}),
 
                     html.Div([
@@ -141,9 +141,9 @@ app.layout = html.Div([
                                            'backgroundColor': 'grey'}
 
                                     ),
-                    ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
+                    ], style={'width': '70%', 'font-family': 'calibri', 'vertical-align': 'top',
                               'display': 'inline-block'}),
-                ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri',
+                ], style={'width': '70%', 'display': 'inline-block', 'font-family': 'calibri',
                           'vertical-align': 'top'}),
 
                 html.Div([
@@ -155,7 +155,7 @@ app.layout = html.Div([
                         dcc.Graph(id='Performance')
                     ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
                               'font-family': 'calibri', 'horizontal-align': 'right'}),
-                ], style={'width': '100%', 'vertical-align': 'top', 'display': 'inline-block', \
+                ], style={'width': '70%', 'vertical-align': 'top', 'display': 'inline-block', \
                           'font-family': 'calibri', 'horizontal-align': 'right'}),
 
             ], style={'width': '70%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top',
