@@ -165,7 +165,7 @@ app.layout = html.Div([
          
          #All the Investor Characteristics
                       
-         html.Div([
+         #html.Div([
           """html.Div([ 
             
             html.Label('Age:',style={'padding': 5}),
@@ -237,8 +237,8 @@ app.layout = html.Div([
             html.Br(),            
               ],style={'width': '100%', 'background-color': 'LightGray', 'border-radius': '25px'}),"""
             
-            ],style={'width': '30%', 'font-family': 'calibri','vertical-align': 'top','display': 'inline-block'\
-                     }),
+            #],style={'width': '30%', 'font-family': 'calibri','vertical-align': 'top','display': 'inline-block'\
+            #         }),
 
     # ********************Risk Tolerance Charts********            
          """html.Div([
