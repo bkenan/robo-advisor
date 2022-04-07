@@ -42,11 +42,12 @@ app.layout = html.Div([
             html.Div([
                 html.H5(children='Step 1 : Investor Characteristics '),            
                 ],style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
-                         'color':'black', 'background-color': 'LightGray'}), 
+                         'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
                 html.H5(children='Step 2 : Portfolio management'),            
                 ],style={'display': 'inline-block', 'vertical-align': 'top',  \
-                         'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue'}), 
+                         'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue',\
+                         'border-radius': '25px'}),
             ],style={'font-family': 'calibri', 'text-align': 'center'}),
          
          #All the Investor Characteristics
@@ -59,7 +60,8 @@ app.layout = html.Div([
                 id='Age',
                 min = investors['AGE07'].min(),
                 max = 70,
-                marks={ 25: '25',35: '35',45: '45',55: '55',70: '70'},              
+                marks={ 25: '25',35: '35',45: '45',55: '55',70: '70'},
+                style={},
                 value=25),   
             html.Br(),
             
