@@ -13,6 +13,8 @@ logging.getLogger("requests").setLevel(logging.WARNING)
 import dash_core_components as dcc
 import dash_html_components as html
 
+#added comment
+
 
 investors = pd.read_csv('./data/dataset.csv', index_col = 0)
 assets = pd.read_csv('./data/SP500Data.csv',index_col=0)
@@ -38,135 +40,284 @@ app.layout = html.Div([
         html.Div([
             html.H3(children='Robo-Advisor'),
             html.Div([
-                html.H5(children='Step 1 : Investor Characteristics '),            
-                ],style={'display': 'inline-block','vertical-align': 'top',  'width': '30%',\
-                         'color':'black', 'background-color': 'LightGray'}), 
+                html.H5(children='Step 1 : Investor Characteristics '),
+                html.Div([
+                html.Label('Age', style={'padding': 10}),
+                dcc.Slider(
+                    id='Age',
+                    min=investors['AGE07'].min(),
+                    max=70,
+                    marks={25: '25', 35: '35', 45: '45', 55: '55', 70: '70'},
+                    value=25),
+                html.Br(),
+
+                html.Label('Net Worth ($Millions)', style={'padding': 10}),
+                dcc.Slider(
+                    id='Nwcat',
+                    min=-1000000, max=3000000,
+                    marks={-1000000: '-1.0', 0: '0.0', 500000: '0.5', 1000000: '1.0', 2000000: '2.0', },
+                    value=10000),
+                html.Br(),
+                html.Label('Income ($Millions)', style={'padding': 10}),
+                dcc.Slider(
+                    id='Inccl',
+                    min=-1000000,
+                    max=3000000,
+                    marks={-1000000: '-1.0', 0: '0.0', 500000: '0.5', 1000000: '1.0', 2000000: '2.0', },
+                    value=100000),
+
+                html.Br(),
+                html.Label('Education Level', style={'padding': 10}),
+                dcc.Slider(
+                    id='Edu',
+                    min=investors['EDCL07'].min(), max=investors['EDCL07'].max(),
+                    marks={1: 'No High School', 2: '2', 3: '3', 4: 'College Degree'},
+                    value=2),
+                html.Br(),
+                html.Label('Married', style={'padding': 10}),
+                dcc.Slider(
+                    id='Married',
+                    min=investors['MARRIED07'].min(), max=investors['MARRIED07'].max(),
+                    marks={1: 'Married', 2: 'Unmarried'},
+                    value=1),
+                html.Br(),
+                html.Label('Kids', style={'padding': 10}),
+                dcc.Slider(
+                    id='Kids',
+                    min=investors['KIDS07'].min(), max=investors['KIDS07'].max(),
+                    # marks={ 1: '1',2: '2',3: '3',4: '4'},
+                    marks=[{'label': j, 'value': j} for j in investors['KIDS07'].unique()],
+                    value=3),
+                html.Br(),
+                html.Label('Occupation', style={'padding': 10}),
+                dcc.Slider(
+                    id='Occ',
+                    min=investors['OCCAT107'].min(), max=investors['OCCAT107'].max(),
+                    marks={1: 'Managerial', 2: '2', 3: '3', 4: 'Unemployed'},
+                    value=3),
+                html.Br(),
+                html.Label('Willingness to take Risk', style={'padding': 10}),
+                dcc.Slider(
+                    id='Risk',
+                    min=investors['RISK07'].min(), max=investors['RISK07'].max(),
+                    marks={1: '1 (Highest)', 2: '2', 3: '3', 4: '4 (Lowest)'},
+                    value=3),
+                html.Br(),
+                # html.Button(id='investor_char_button',
+                #             n_clicks=0,
+                #             children='Calculate Risk Tolerance',
+                #             style={'fontSize': 14, 'marginLeft': '30px', 'color': 'white', \
+                #                    'horizontal-align': 'left', 'backgroundColor': 'grey'}),
+                # html.Br(),
+                ], style={'width': '90%', 'text-align': 'center', 'display': 'inline-block'}),
+                ], style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
+                   'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
-                html.H5(children='Step 2 : Portfolio management'),            
-                ],style={'display': 'inline-block', 'vertical-align': 'top',  \
-                         'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue'}), 
-            ],style={'font-family': 'calibri'}),        
+                html.Div([
+                    html.H5(children='Step 2 : Portfolio management'),
+
+                    html.Div([
+                        html.Div([
+                            html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
+                            dcc.Input(id='risk-tolerance-text'),
+
+                        ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
+                              'display': 'inline-block'}),
+
+                        html.Div([
+                            html.Label('Select the assets for the portfolio:', style={'padding': 5}),
+                            dcc.Dropdown(
+                                id='ticker_symbol',
+                                options=options,
+                                value=['GOOGL', 'FB', 'GS', 'MS', 'GE', 'MSFT'],
+                                multi=True,
+                                style={'color': 'black'},
+                            ),
+                            html.Button(id='submit-asset_alloc_button',
+                                        n_clicks=0,
+                                        children='Submit',
+                                        style={'fontSize': 12, 'marginLeft': '25px', 'color': 'white',
+                                           'backgroundColor': 'grey'}
+
+                                        ),
+                        ], style={'width': '80%', 'font-family': 'calibri', 'vertical-align': 'top',
+                              'display': 'inline-block'}),
+                    ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
+                ], style={'display': 'inline-block', 'vertical-align': 'top',
+                         'color':'white','horizontalAlign' : "left", 'width': '100%', 'background-color': 'blue',
+                         'border-radius': '25px'}),
+
+                html.Div([
+                # html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),
+                #  html.Div([
+                #     html.Div([
+                #         html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
+                #         dcc.Input(id='risk-tolerance-text'),
+                #
+                #     ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
+                #               'display': 'inline-block'}),
+                #
+                #     html.Div([
+                #         html.Label('Select the assets for the portfolio:', style={'padding': 5}),
+                #         dcc.Dropdown(
+                #             id='ticker_symbol',
+                #             options=options,
+                #             value=['GOOGL', 'FB', 'GS', 'MS', 'GE', 'MSFT'],
+                #             multi=True
+                #             # style={'fontSize': 24, 'width': 75}
+                #         ),
+                #         html.Button(id='submit-asset_alloc_button',
+                #                     n_clicks=0,
+                #                     children='Submit',
+                #                     style={'fontSize': 12, 'marginLeft': '25px', 'color': 'white',
+                #                            'backgroundColor': 'grey'}
+                #
+                #                     ),
+                #     ], style={'width': '80%', 'font-family': 'calibri', 'vertical-align': 'top',
+                #               'display': 'inline-block'}),
+                #  ] , style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
+
+                 html.Div([
+                    html.Div([
+                        dcc.Graph(id='Asset-Allocation'),
+                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block',
+                              'font-family': 'calibri', 'horizontal-align': 'right'}),
+                    html.Div([
+                        dcc.Graph(id='Performance', style={'color': 'blue'})
+                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block',
+                              'font-family': 'calibri', 'horizontal-align': 'right'}),
+                 ], style={'width': '100%', 'vertical-align': 'top', 'display': 'inline-block',
+                          'font-family': 'calibri', 'horizontal-align': 'right'}),
+
+                ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top',
+                      'horizontal-align': 'right'}),
+            ], style={'display': 'inline-block', 'vertical-align': 'top',
+                         'color':'white','horizontalAlign' : "left", 'width': '70%',
+                         'border-radius': '25px'}),
+
+        ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
+            ],style={'font-family': 'calibri', 'text-align': 'center'}),
          
          #All the Investor Characteristics
                       
-         html.Div([   
-          html.Div([ 
-            
-            html.Label('Age:',style={'padding': 5}),
-            dcc.Slider(
-                id='Age',
-                min = investors['AGE07'].min(),
-                max = 70,
-                marks={ 25: '25',35: '35',45: '45',55: '55',70: '70'},              
-                value=25),   
-            html.Br(),
-            
-            html.Label('NetWorth:', style={'padding': 5}),
-            dcc.Slider(
-                id='Nwcat',
-                min = -1000000, max = 3000000,
-                marks={-1000000: '-$1M',0: '0',500000: '$0.5m',1000000: '$1M',2000000: '$2M',},                
-                value=10000),
-            html.Br(),
-            html.Label('Income:', style={'padding': 5}),
-            dcc.Slider(
-                id='Inccl',
-                min = -1000000,
-                max = 3000000,
-                marks={-1000000: '-$1M',0: '0',500000: '$500K',1000000: '$1M',2000000: '$2M',},
-                value=100000),
-            
-            html.Br(),
-            html.Label('Education Level (scale of 4):', style={'padding': 5}),
-            dcc.Slider(
-                id='Edu',
-                min = investors['EDCL07'].min(), max = investors['EDCL07'].max(),
-                marks={ 1: '1',2: '2',3: '3',4: '4'},
-                value=2), 
-            html.Br(),
-            html.Label('Married:', style={'padding': 5}),
-            dcc.Slider(
-                id='Married',
-                min = investors['MARRIED07'].min(), max = investors['MARRIED07'].max(),
-                marks={ 1: '1',2: '2'},
-                value=1), 
-            html.Br(),
-            html.Label('Kids:', style={'padding': 5}),
-            dcc.Slider(
-                id='Kids',
-                min = investors['KIDS07'].min(), max = investors['KIDS07'].max(),
-                #marks={ 1: '1',2: '2',3: '3',4: '4'},
-                marks=[{'label': j, 'value': j} for j in investors['KIDS07'].unique()],
-                value=3), 
-            html.Br(),
-            html.Label('Occupation:', style={'padding': 5}),
-            dcc.Slider(
-                id='Occ',
-                min = investors['OCCAT107'].min(), max = investors['OCCAT107'].max(),
-                marks={ 1: '1',2: '2',3: '3',4: '4'},
-                value=3),            
-            html.Br(),
-            html.Label('Willingness to take Risk:', style={'padding': 5}),
-            dcc.Slider(
-                id='Risk',
-                min = investors['RISK07'].min(), max = investors['RISK07'].max(),
-                marks={ 1: '1',2: '2',3: '3',4: '4'},
-                value=3), 
-            html.Br(),
-            html.Button(id='investor_char_button',
-                            n_clicks = 0,
-                            children = 'Calculate Risk Tolerance',
-                            style = {'fontSize': 14, 'marginLeft': '30px', 'color' : 'white',\
-                                     'horizontal-align': 'left','backgroundColor': 'grey'}),             
-            html.Br(),            
-              ],style={'width': '80%'}),           
-            
-            ],style={'width': '30%', 'font-family': 'calibri','vertical-align': 'top','display': 'inline-block'\
-                     }),
+         #html.Div([
+          # html.Div([
+          #
+          #   html.Label('Age:',style={'padding': 5}),
+          #   dcc.Slider(
+          #       id='Age',
+          #       min = investors['AGE07'].min(),
+          #       max = 70,
+          #       marks={ 25: '25',35: '35',45: '45',55: '55',70: '70'},
+          #       value=25),
+          #   html.Br(),
+          #
+          #   html.Label('NetWorth:', style={'padding': 5}),
+          #   dcc.Slider(
+          #       id='Nwcat',
+          #       min = -1000000, max = 3000000,
+          #       marks={-1000000: '-$1M',0: '0',500000: '$0.5m',1000000: '$1M',2000000: '$2M',},
+          #       value=10000),
+          #   html.Br(),
+          #   html.Label('Income:', style={'padding': 5}),
+          #   dcc.Slider(
+          #       id='Inccl',
+          #       min = -1000000,
+          #       max = 3000000,
+          #       marks={-1000000: '-$1M',0: '0',500000: '$500K',1000000: '$1M',2000000: '$2M',},
+          #       value=100000),
+          #
+          #   html.Br(),
+          #   html.Label('Education Level (scale of 4):', style={'padding': 5}),
+          #   dcc.Slider(
+          #       id='Edu',
+          #       min = investors['EDCL07'].min(), max = investors['EDCL07'].max(),
+          #       marks={ 1: '1',2: '2',3: '3',4: '4'},
+          #       value=2),
+          #   html.Br(),
+          #   html.Label('Married:', style={'padding': 5}),
+          #   dcc.Slider(
+          #       id='Married',
+          #       min = investors['MARRIED07'].min(), max = investors['MARRIED07'].max(),
+          #       marks={ 1: '1',2: '2'},
+          #       value=1),
+          #   html.Br(),
+          #   html.Label('Kids:', style={'padding': 5}),
+          #   dcc.Slider(
+          #       id='Kids',
+          #       min = investors['KIDS07'].min(), max = investors['KIDS07'].max(),
+          #       #marks={ 1: '1',2: '2',3: '3',4: '4'},
+          #       marks=[{'label': j, 'value': j} for j in investors['KIDS07'].unique()],
+          #       value=3),
+          #   html.Br(),
+          #   html.Label('Occupation:', style={'padding': 5}),
+          #   dcc.Slider(
+          #       id='Occ',
+          #       min = investors['OCCAT107'].min(), max = investors['OCCAT107'].max(),
+          #       marks={ 1: '1',2: '2',3: '3',4: '4'},
+          #       value=3),
+          #   html.Br(),
+          #   html.Label('Willingness to take Risk:', style={'padding': 5}),
+          #   dcc.Slider(
+          #       id='Risk',
+          #       min = investors['RISK07'].min(), max = investors['RISK07'].max(),
+          #       marks={ 1: '1',2: '2',3: '3',4: '4'},
+          #       value=3),
+          #   html.Br(),
+          #   html.Button(id='investor_char_button',
+          #                   n_clicks = 0,
+          #                   children = 'Calculate Risk Tolerance',
+          #                   style = {'fontSize': 14, 'marginLeft': '30px', 'color' : 'white',\
+          #                            'horizontal-align': 'left','backgroundColor': 'grey'}),
+          #   html.Br(),
+          #     ],style={'width': '100%', 'background-color': 'LightGray', 'border-radius': '25px'}),
+          #
+            #],style={'width': '30%', 'font-family': 'calibri','vertical-align': 'top','display': 'inline-block'\
+            #         }),
 
     # ********************Risk Tolerance Charts********            
-       html.Div([    
-               #html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),  
-        html.Div([
-            html.Div([ 
-                html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
-                dcc.Input(id= 'risk-tolerance-text'),
-               
-                ],style={'width': '100%','font-family': 'calibri','vertical-align': 'top','display': 'inline-block'}),
-
-            html.Div([ 
-                html.Label('Select the assets for the portfolio:', style={'padding': 5}),
-                dcc.Dropdown(
-                        id='ticker_symbol',
-                        options = options,
-                        value = ['GOOGL', 'FB', 'GS','MS','GE','MSFT'], 
-                        multi = True
-                        # style={'fontSize': 24, 'width': 75}
-                        ),
-                html.Button(id='submit-asset_alloc_button',
-                            n_clicks = 0,
-                            children = 'Submit',
-                            style = {'fontSize': 12, 'marginLeft': '25px','color' : 'white', 'backgroundColor': 'grey'}
-
-                ), 
-               ],style={'width': '100%','font-family': 'calibri','vertical-align': 'top','display': 'inline-block'}),
-            ],style={'width': '100%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top'}),
-           
-           html.Div([                
-                html.Div([
-                    dcc.Graph(id='Asset-Allocation'), 
-                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
-                      'font-family': 'calibri', 'horizontal-align': 'right'}),
-                html.Div([
-                    dcc.Graph(id='Performance')
-                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
-                      'font-family': 'calibri', 'horizontal-align': 'right'}),
-                   ], style={'width': '100%', 'vertical-align': 'top', 'display': 'inline-block', \
-                          'font-family': 'calibri', 'horizontal-align': 'right'}),          
-
-
-        ], style={'width': '70%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top', 'horizontal-align': 'right'}),
-       ],style={'width': '70%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top'}),               
+    #      html.Div([
+    #            #html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),
+    #       html.Div([
+    #         html.Div([
+    #             html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
+    #             dcc.Input(id= 'risk-tolerance-text'),
+    #
+    #             ],style={'width': '100%','font-family': 'calibri','vertical-align': 'top','display': 'inline-block'}),
+    #
+    #         html.Div([
+    #             html.Label('Select the assets for the portfolio:', style={'padding': 5}),
+    #             dcc.Dropdown(
+    #                     id='ticker_symbol',
+    #                     options = options,
+    #                     value = ['GOOGL', 'FB', 'GS','MS','GE','MSFT'],
+    #                     multi = True
+    #                     # style={'fontSize': 24, 'width': 75}
+    #                     ),
+    #             html.Button(id='submit-asset_alloc_button',
+    #                         n_clicks = 0,
+    #                         children = 'Submit',
+    #                         style = {'fontSize': 12, 'marginLeft': '25px','color' : 'white', 'backgroundColor': 'grey'}
+    #
+    #             ),
+    #            ],style={'width': '100%','font-family': 'calibri','vertical-align': 'top','display': 'inline-block'}),
+    #         ],style={'width': '100%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top'}),
+    #
+    #         html.Div([
+    #             html.Div([
+    #                 dcc.Graph(id='Asset-Allocation'),
+    #                 ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
+    #                   'font-family': 'calibri', 'horizontal-align': 'right'}),
+    #             html.Div([
+    #                 dcc.Graph(id='Performance')
+    #                 ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
+    #                   'font-family': 'calibri', 'horizontal-align': 'right'}),
+    #                ], style={'width': '100%', 'vertical-align': 'top', 'display': 'inline-block', \
+    #                       'font-family': 'calibri', 'horizontal-align': 'right'}),
+    #
+    #
+    #     ], style={'width': '70%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top', 'horizontal-align': 'right'}),
+    #    ],style={'width': '100%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top'}),
 
   ])    
 
@@ -215,17 +366,18 @@ def get_asset_allocation(riskTolerance,stock_ticker):
 
 @app.callback(
     [Output('risk-tolerance-text', 'value')],
-    [Input('investor_char_button', 'n_clicks'),
-    Input('Age', 'value'),Input('Nwcat', 'value'),
+    #[Input('investor_char_button', 'n_clicks'),
+    [Input('Age', 'value'),Input('Nwcat', 'value'),
     Input('Inccl', 'value'), Input('Risk', 'value'),
     Input('Edu', 'value'),Input('Married', 'value'),
     Input('Kids', 'value'),Input('Occ', 'value')])
 #get the x and y axis details 
 
-def update_risk_tolerance(n_clicks,Age,Nwcat,Inccl,Risk,Edu,Married,Kids,Occ):
+def update_risk_tolerance(Age,Nwcat,Inccl,Risk,Edu,Married,Kids,Occ):
       
     #ipdb.set_trace()
-    
+
+    n_clicks = 0
     RiskTolerance = 0
     if n_clicks != None:    
         X_input = [[Age,Edu,Married,Kids,Occ,Inccl, Risk,Nwcat]]
@@ -237,7 +389,7 @@ def update_risk_tolerance(n_clicks,Age,Nwcat,Inccl,Risk,Edu,Married,Kids,Occ):
 @app.callback([Output('Asset-Allocation', 'figure'),
               Output('Performance', 'figure')],
             [Input('submit-asset_alloc_button', 'n_clicks'),
-            Input('risk-tolerance-text', 'value')], 
+            Input('risk-tolerance-text', 'value')],
             [State('ticker_symbol', 'value')
             ])
 def update_asset_allocationChart(n_clicks, risk_tolerance, stock_ticker):
@@ -247,7 +399,7 @@ def update_asset_allocationChart(n_clicks, risk_tolerance, stock_ticker):
     return [{'data' : [go.Bar(
                         x=Allocated.index,
                         y=Allocated.iloc[:,0],
-                        marker=dict(color='red'),
+                        marker=dict(color='blue'),
                     ),
                     ],
             'layout': {'title':" Asset allocation - Mean-Variance Allocation"}
@@ -257,7 +409,7 @@ def update_asset_allocationChart(n_clicks, risk_tolerance, stock_ticker):
                         x=InvestmentReturn.index,
                         y=InvestmentReturn.iloc[:,0],
                         name = 'OEE (%)',
-                        marker=dict(color='red'),
+                        marker=dict(color='blue'),
                     ),
                     ],
             'layout': {'title':"Portfolio value of $100 investment"}
