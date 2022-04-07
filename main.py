@@ -120,7 +120,7 @@ app.layout = html.Div([
          #All the Investor Characteristics
                       
          html.Div([
-          html.Div([ 
+          """html.Div([ 
             
             html.Label('Age:',style={'padding': 5}),
             dcc.Slider(
@@ -189,7 +189,7 @@ app.layout = html.Div([
                             style = {'fontSize': 14, 'marginLeft': '30px', 'color' : 'white',\
                                      'horizontal-align': 'left','backgroundColor': 'grey'}),             
             html.Br(),            
-              ],style={'width': '100%', 'background-color': 'LightGray', 'border-radius': '25px'}),
+              ],style={'width': '100%', 'background-color': 'LightGray', 'border-radius': '25px'}),"""
             
             ],style={'width': '30%', 'font-family': 'calibri','vertical-align': 'top','display': 'inline-block'\
                      }),
