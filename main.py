@@ -115,6 +115,52 @@ app.layout = html.Div([
                 ],style={'display': 'inline-block', 'vertical-align': 'top',  \
                          'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue',\
                          'border-radius': '25px'}),
+            html.Div([
+                # html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),
+                html.Div([
+                    html.Div([
+                        html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
+                        dcc.Input(id='risk-tolerance-text'),
+
+                    ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
+                              'display': 'inline-block'}),
+
+                    html.Div([
+                        html.Label('Select the assets for the portfolio:', style={'padding': 5}),
+                        dcc.Dropdown(
+                            id='ticker_symbol',
+                            options=options,
+                            value=['GOOGL', 'FB', 'GS', 'MS', 'GE', 'MSFT'],
+                            multi=True
+                            # style={'fontSize': 24, 'width': 75}
+                        ),
+                        html.Button(id='submit-asset_alloc_button',
+                                    n_clicks=0,
+                                    children='Submit',
+                                    style={'fontSize': 12, 'marginLeft': '25px', 'color': 'white',
+                                           'backgroundColor': 'grey'}
+
+                                    ),
+                    ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
+                              'display': 'inline-block'}),
+                ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri',
+                          'vertical-align': 'top'}),
+
+                html.Div([
+                    html.Div([
+                        dcc.Graph(id='Asset-Allocation'),
+                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
+                              'font-family': 'calibri', 'horizontal-align': 'right'}),
+                    html.Div([
+                        dcc.Graph(id='Performance')
+                    ], style={'width': '50%', 'vertical-align': 'top', 'display': 'inline-block', \
+                              'font-family': 'calibri', 'horizontal-align': 'right'}),
+                ], style={'width': '100%', 'vertical-align': 'top', 'display': 'inline-block', \
+                          'font-family': 'calibri', 'horizontal-align': 'right'}),
+
+            ], style={'width': '70%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top',
+                      'horizontal-align': 'right'}),
+        ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
             ],style={'font-family': 'calibri', 'text-align': 'center'}),
          
          #All the Investor Characteristics
@@ -195,7 +241,7 @@ app.layout = html.Div([
                      }),
 
     # ********************Risk Tolerance Charts********            
-         html.Div([
+         """html.Div([
                #html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),  
           html.Div([
             html.Div([ 
@@ -236,7 +282,7 @@ app.layout = html.Div([
 
 
         ], style={'width': '70%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top', 'horizontal-align': 'right'}),
-       ],style={'width': '100%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top'}),
+       ],style={'width': '100%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top'}),"""
 
   ])    
 
