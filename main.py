@@ -157,7 +157,7 @@ app.layout = html.Div([
 
                 ], style={'width': '70%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top',
                       'horizontal-align': 'right'}),
-            ], style={'display': 'inline-block', 'vertical-align': 'top'
+            ], style={'display': 'inline-block', 'vertical-align': 'top',
                          'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue',
                          'border-radius': '25px'}),
 
