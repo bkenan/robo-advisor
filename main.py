@@ -130,8 +130,8 @@ app.layout = html.Div([
                                 id='ticker_symbol',
                                 options=options,
                                 value=['GOOGL', 'FB', 'GS', 'MS', 'GE', 'MSFT'],
-                                multi=True
-                                # style={'fontSize': 24, 'width': 75}
+                                multi=True,
+                                style={'color': 'black'},
                             ),
                             html.Button(id='submit-asset_alloc_button',
                                         n_clicks=0,
