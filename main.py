@@ -139,7 +139,7 @@ app.layout = html.Div([
                                            'backgroundColor': 'grey'}
 
                                     ),
-                    ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
+                    ], style={'width': '80%', 'font-family': 'calibri', 'vertical-align': 'top',
                               'display': 'inline-block'}),
                  ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
 
