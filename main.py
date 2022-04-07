@@ -13,6 +13,8 @@ logging.getLogger("requests").setLevel(logging.WARNING)
 import dash_core_components as dcc
 import dash_html_components as html
 
+#added comment
+
 
 investors = pd.read_csv('./data/dataset.csv', index_col = 0)
 assets = pd.read_csv('./data/SP500Data.csv',index_col=0)
