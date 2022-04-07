@@ -388,8 +388,8 @@ def update_risk_tolerance(Age,Nwcat,Inccl,Risk,Edu,Married,Kids,Occ):
 
 @app.callback([Output('Asset-Allocation', 'figure'),
               Output('Performance', 'figure')],
-            #[Input('submit-asset_alloc_button', 'n_clicks'),
-            [Input('risk-tolerance-text', 'value')],
+            [Input('submit-asset_alloc_button', 'n_clicks'),
+            Input('risk-tolerance-text', 'value')],
             [State('ticker_symbol', 'value')
             ])
 def update_asset_allocationChart(n_clicks, risk_tolerance, stock_ticker):
