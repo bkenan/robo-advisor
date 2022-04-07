@@ -47,7 +47,7 @@ app.layout = html.Div([
                 html.H5(children='Step 2 : Portfolio management'),            
                 ],style={'display': 'inline-block', 'vertical-align': 'top',  \
                          'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color':'blue'}), 
-            ],style={'font-family': 'calibri'}),        
+            ],style={'font-family': 'calibri', 'text-align': 'center'}),
          
          #All the Investor Characteristics
                       
