@@ -108,8 +108,8 @@ app.layout = html.Div([
                 #             style={'fontSize': 14, 'marginLeft': '30px', 'color': 'white', \
                 #                    'horizontal-align': 'left', 'backgroundColor': 'grey'}),
                 # html.Br(),
-                # ],style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
-                #       'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
+                ],style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
+                   'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
                 html.H5(children='Step 2 : Portfolio management'),
 
