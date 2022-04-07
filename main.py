@@ -41,7 +41,7 @@ app.layout = html.Div([
             html.H3(children='Robo-Advisor'),
             html.Div([
                 html.H5(children='Step 1 : Investor Characteristics '),
-                html.Label('Age:', style={'padding': 5}),
+                html.Label('Age', style={'padding': 5}),
                 dcc.Slider(
                     id='Age',
                     min=investors['AGE07'].min(),
@@ -50,19 +50,19 @@ app.layout = html.Div([
                     value=25),
                 html.Br(),
 
-                html.Label('NetWorth:', style={'padding': 5}),
+                html.Label('Net Worth ($Millions)', style={'padding': 5}),
                 dcc.Slider(
                     id='Nwcat',
                     min=-1000000, max=3000000,
-                    marks={-1000000: '-$1M', 0: '0', 500000: '$0.5m', 1000000: '$1M', 2000000: '$2M', },
+                    marks={-1000000: '-1.0', 0: '0.0', 500000: '0.5', 1000000: '1.0', 2000000: '2.0', },
                     value=10000),
                 html.Br(),
-                html.Label('Income:', style={'padding': 5}),
+                html.Label('Income ($Millions)', style={'padding': 5}),
                 dcc.Slider(
                     id='Inccl',
                     min=-1000000,
                     max=3000000,
-                    marks={-1000000: '-$1M', 0: '0', 500000: '$500K', 1000000: '$1M', 2000000: '$2M', },
+                    marks={-1000000: '-1.0', 0: '0.0', 500000: '0.5', 1000000: '1.0', 2000000: '2.0', },
                     value=100000),
 
                 html.Br(),
