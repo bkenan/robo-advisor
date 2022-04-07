@@ -332,17 +332,18 @@ def get_asset_allocation(riskTolerance,stock_ticker):
 
 @app.callback(
     [Output('risk-tolerance-text', 'value')],
-    [Input('investor_char_button', 'n_clicks'),
-    Input('Age', 'value'),Input('Nwcat', 'value'),
+    #[Input('investor_char_button', 'n_clicks'),
+    [Input('Age', 'value'),Input('Nwcat', 'value'),
     Input('Inccl', 'value'), Input('Risk', 'value'),
     Input('Edu', 'value'),Input('Married', 'value'),
     Input('Kids', 'value'),Input('Occ', 'value')])
 #get the x and y axis details 
 
-def update_risk_tolerance(n_clicks,Age,Nwcat,Inccl,Risk,Edu,Married,Kids,Occ):
+def update_risk_tolerance(Age,Nwcat,Inccl,Risk,Edu,Married,Kids,Occ):
       
     #ipdb.set_trace()
-    
+
+    n_clicks = 0
     RiskTolerance = 0
     if n_clicks != None:    
         X_input = [[Age,Edu,Married,Kids,Occ,Inccl, Risk,Nwcat]]
