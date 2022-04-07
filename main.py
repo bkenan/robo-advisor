@@ -42,7 +42,7 @@ app.layout = html.Div([
             html.Div([
                 html.H5(children='Step 1 : Investor Characteristics '),
                 html.Div([
-                html.Label('Age', style={'padding': 5}),
+                html.Label('Age', style={'padding': 10}),
                 dcc.Slider(
                     id='Age',
                     min=investors['AGE07'].min(),
@@ -51,14 +51,14 @@ app.layout = html.Div([
                     value=25),
                 html.Br(),
 
-                html.Label('Net Worth ($Millions)', style={'padding': 5}),
+                html.Label('Net Worth ($Millions)', style={'padding': 10}),
                 dcc.Slider(
                     id='Nwcat',
                     min=-1000000, max=3000000,
                     marks={-1000000: '-1.0', 0: '0.0', 500000: '0.5', 1000000: '1.0', 2000000: '2.0', },
                     value=10000),
                 html.Br(),
-                html.Label('Income ($Millions)', style={'padding': 5}),
+                html.Label('Income ($Millions)', style={'padding': 10}),
                 dcc.Slider(
                     id='Inccl',
                     min=-1000000,
@@ -67,21 +67,21 @@ app.layout = html.Div([
                     value=100000),
 
                 html.Br(),
-                html.Label('Education Level', style={'padding': 5}),
+                html.Label('Education Level', style={'padding': 10}),
                 dcc.Slider(
                     id='Edu',
                     min=investors['EDCL07'].min(), max=investors['EDCL07'].max(),
                     marks={1: 'No High School', 2: '2', 3: '3', 4: 'College Degree'},
                     value=2),
                 html.Br(),
-                html.Label('Married', style={'padding': 5}),
+                html.Label('Married', style={'padding': 10}),
                 dcc.Slider(
                     id='Married',
                     min=investors['MARRIED07'].min(), max=investors['MARRIED07'].max(),
                     marks={1: 'Married', 2: 'Unmarried'},
                     value=1),
                 html.Br(),
-                html.Label('Kids', style={'padding': 5}),
+                html.Label('Kids', style={'padding': 10}),
                 dcc.Slider(
                     id='Kids',
                     min=investors['KIDS07'].min(), max=investors['KIDS07'].max(),
@@ -89,14 +89,14 @@ app.layout = html.Div([
                     marks=[{'label': j, 'value': j} for j in investors['KIDS07'].unique()],
                     value=3),
                 html.Br(),
-                html.Label('Occupation', style={'padding': 5}),
+                html.Label('Occupation', style={'padding': 10}),
                 dcc.Slider(
                     id='Occ',
                     min=investors['OCCAT107'].min(), max=investors['OCCAT107'].max(),
                     marks={1: 'Managerial', 2: '2', 3: '3', 4: 'Unemployed'},
                     value=3),
                 html.Br(),
-                html.Label('Willingness to take Risk', style={'padding': 5}),
+                html.Label('Willingness to take Risk', style={'padding': 10}),
                 dcc.Slider(
                     id='Risk',
                     min=investors['RISK07'].min(), max=investors['RISK07'].max(),
