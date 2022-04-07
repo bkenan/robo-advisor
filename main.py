@@ -119,7 +119,7 @@ app.layout = html.Div([
          
          #All the Investor Characteristics
                       
-         """html.Div([   
+         html.Div([
           html.Div([ 
             
             html.Label('Age:',style={'padding': 5}),
@@ -192,12 +192,12 @@ app.layout = html.Div([
               ],style={'width': '100%', 'background-color': 'LightGray', 'border-radius': '25px'}),
             
             ],style={'width': '30%', 'font-family': 'calibri','vertical-align': 'top','display': 'inline-block'\
-                     }),""",
+                     }),
 
     # ********************Risk Tolerance Charts********            
-        html.Div([
-               #html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),  
          html.Div([
+               #html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),  
+          html.Div([
             html.Div([ 
                 html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
                 dcc.Input(id= 'risk-tolerance-text'),
@@ -236,7 +236,7 @@ app.layout = html.Div([
 
 
         ], style={'width': '70%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top', 'horizontal-align': 'right'}),
-       ],style={'width': '70%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top'}),               
+       ],style={'width': '100%','display': 'inline-block','font-family': 'calibri','vertical-align': 'top'}),
 
   ])    
 
