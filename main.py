@@ -115,39 +115,67 @@ app.layout = html.Div([
             html.Div([
                 html.Div([
                     html.H5(children='Step 2 : Portfolio management'),
+
+                    html.Div([
+                        html.Div([
+                            html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
+                            dcc.Input(id='risk-tolerance-text'),
+
+                        ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
+                              'display': 'inline-block'}),
+
+                        html.Div([
+                            html.Label('Select the assets for the portfolio:', style={'padding': 5}),
+                            dcc.Dropdown(
+                                id='ticker_symbol',
+                                options=options,
+                                value=['GOOGL', 'FB', 'GS', 'MS', 'GE', 'MSFT'],
+                                multi=True
+                                # style={'fontSize': 24, 'width': 75}
+                            ),
+                            html.Button(id='submit-asset_alloc_button',
+                                        n_clicks=0,
+                                        children='Submit',
+                                        style={'fontSize': 12, 'marginLeft': '25px', 'color': 'white',
+                                           'backgroundColor': 'grey'}
+
+                                        ),
+                        ], style={'width': '80%', 'font-family': 'calibri', 'vertical-align': 'top',
+                              'display': 'inline-block'}),
+                    ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
                 ], style={'display': 'inline-block', 'vertical-align': 'top',
-                         'color':'white','horizontalAlign' : "left", 'width': '70%', 'background-color': 'blue',
+                         'color':'white','horizontalAlign' : "left", 'width': '100%', 'background-color': 'blue',
                          'border-radius': '25px'}),
 
                 html.Div([
                 # html.H5(children='Step 2 : Enter the Instruments for the allocation portfolio'),
-                 html.Div([
-                    html.Div([
-                        html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
-                        dcc.Input(id='risk-tolerance-text'),
-
-                    ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
-                              'display': 'inline-block'}),
-
-                    html.Div([
-                        html.Label('Select the assets for the portfolio:', style={'padding': 5}),
-                        dcc.Dropdown(
-                            id='ticker_symbol',
-                            options=options,
-                            value=['GOOGL', 'FB', 'GS', 'MS', 'GE', 'MSFT'],
-                            multi=True
-                            # style={'fontSize': 24, 'width': 75}
-                        ),
-                        html.Button(id='submit-asset_alloc_button',
-                                    n_clicks=0,
-                                    children='Submit',
-                                    style={'fontSize': 12, 'marginLeft': '25px', 'color': 'white',
-                                           'backgroundColor': 'grey'}
-
-                                    ),
-                    ], style={'width': '80%', 'font-family': 'calibri', 'vertical-align': 'top',
-                              'display': 'inline-block'}),
-                 ], style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
+                #  html.Div([
+                #     html.Div([
+                #         html.Label('Risk Tolerance (scale of 100) :', style={'padding': 5}),
+                #         dcc.Input(id='risk-tolerance-text'),
+                #
+                #     ], style={'width': '100%', 'font-family': 'calibri', 'vertical-align': 'top',
+                #               'display': 'inline-block'}),
+                #
+                #     html.Div([
+                #         html.Label('Select the assets for the portfolio:', style={'padding': 5}),
+                #         dcc.Dropdown(
+                #             id='ticker_symbol',
+                #             options=options,
+                #             value=['GOOGL', 'FB', 'GS', 'MS', 'GE', 'MSFT'],
+                #             multi=True
+                #             # style={'fontSize': 24, 'width': 75}
+                #         ),
+                #         html.Button(id='submit-asset_alloc_button',
+                #                     n_clicks=0,
+                #                     children='Submit',
+                #                     style={'fontSize': 12, 'marginLeft': '25px', 'color': 'white',
+                #                            'backgroundColor': 'grey'}
+                #
+                #                     ),
+                #     ], style={'width': '80%', 'font-family': 'calibri', 'vertical-align': 'top',
+                #               'display': 'inline-block'}),
+                #  ] , style={'width': '100%', 'display': 'inline-block', 'font-family': 'calibri', 'vertical-align': 'top'}),
 
                  html.Div([
                     html.Div([
