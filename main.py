@@ -102,14 +102,14 @@ app.layout = html.Div([
                     marks={1: '1', 2: '2', 3: '3', 4: '4'},
                     value=3),
                 html.Br(),
-                html.Button(id='investor_char_button',
-                            n_clicks=0,
-                            children='Calculate Risk Tolerance',
-                            style={'fontSize': 14, 'marginLeft': '30px', 'color': 'white', \
-                                   'horizontal-align': 'left', 'backgroundColor': 'grey'}),
-                html.Br(),
-                ],style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
-                         'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
+                # html.Button(id='investor_char_button',
+                #             n_clicks=0,
+                #             children='Calculate Risk Tolerance',
+                #             style={'fontSize': 14, 'marginLeft': '30px', 'color': 'white', \
+                #                    'horizontal-align': 'left', 'backgroundColor': 'grey'}),
+                # html.Br(),
+                # ],style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
+                #       'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
                 html.H5(children='Step 2 : Portfolio management'),
 
