@@ -109,7 +109,7 @@ app.layout = html.Div([
                 #             style={'fontSize': 14, 'marginLeft': '30px', 'color': 'white', \
                 #                    'horizontal-align': 'left', 'backgroundColor': 'grey'}),
                 # html.Br(),
-                ], style={'width': '90%'}),
+                ], style={'width': '90%', 'text-align': 'center'}),
                 ], style={'display': 'inline-block','text-align': 'center', 'vertical-align': 'top',  'width': '30%',\
                    'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
