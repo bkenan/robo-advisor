@@ -3,7 +3,7 @@
 
 ## Motivation
  
-The risk tolerance of an investor is one of the most important inputs in the robo-advisor workflow process. This robo-advisor is going to use a wide variety of risk profiling tools to measure the risk tolerance of an investor. The focus is on a regression-based algorithm to compute an investor’s risk tolerance and automate manual processes involved in the client screening process, followed by demonstrating the model graphically. We’ll also consider whether machine learning models might be able to objectively analyze the behavior of investors in a changing market and attribute these changes to the investor’s risk appetite using automated dashboard.
+The risk tolerance of an investor is one of the most important inputs in the robo-advisor workflow process. This robo-advisor is going to use a wide variety of risk profiling tools to measure the risk tolerance of an investor. The focus is on a regression-based algorithm to compute an investor’s risk tolerance and automate manual processes involved in the client screening process, followed by demonstrating the model graphically.Risk tolerance will be predicted by Machine Learning model. We’ll also consider whether machine learning models might be able to objectively analyze the behavior of investors in a changing market and attribute these changes to the investor’s risk appetite using automated dashboard.
 
 
 ## Data collecting and preparation 
