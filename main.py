@@ -114,7 +114,7 @@ app.layout = html.Div([
                    'color':'black', 'background-color': 'LightGray', 'border-radius': '25px'}),
             html.Div([
                 html.Div([
-                    html.H5(children='Step 2 : Portfolio management'),
+                    html.H5(children='Portfolio management'),
 
                     html.Div([
                         html.Div([
