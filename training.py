@@ -84,8 +84,6 @@ df3.to_csv('./data/dataset.csv')
 
 
 
-
-
 ##Split data into training and test sets 
 
 Y=df3["TrueRiskTolerance"]
