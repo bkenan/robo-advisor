@@ -19,12 +19,6 @@ Average_SP500_2007=1478
 Average_SP500_2009=948
 
 
-# Taking the ratio of risky assets to total assets of an individual and consider that as a measure of 
-# the individual’s risk tolerance. We normalize the risky assets with the price of a stock index (S&P500) 
-# in 2007 versus 2009 to get risk tolerance. 
-
-
-
 # 2007 risk tolerance
 
 df['RiskFree07']= df['LIQ07'] + df['CDS07'] + df['SAVBND07'] + df['CASHLI07']
